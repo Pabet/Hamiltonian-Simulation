@@ -3,6 +3,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{graphicx}
+\usepackage{animate}
+\usepackage{physics}
 \usepackage{amssymb}
 \usepackage{mathrsfs}
 \usepackage[utf8]{inputenc}
@@ -25,207 +27,117 @@
 \frame{\tableofcontents[]}
 
 
-\section{Introduction}
+\section{Hamiltonian simulation}
+
 \begin{frame} %%Eine Folie
-  \frametitle{Attosecond Physics} 
-  \begin{Definition} %%Definition
-    1 Attosecond (as) $= 1*10^{-18}$ s
+  \frametitle{Problem statement} 
+  \begin{Definition} 
+  Hamiltonian simulation: \\
+  	"Given a description of a Hamiltonian H, and evolution time t, some initial state $\ket{\psi(0)}$  produce the final state $\ket{\psi(t)}$ (to some error $\epsilon$)"
   \end{Definition}
   \begin{itemize}
- 	\item Shortest timescale available to us in experiments
- 	\item Special analysis methods are required
+ 	\item "The Hamiltonian of a system is the sum of the kinetic energies of all the particles, plus the potential energy of the particles associated with the system
 	\end{itemize}
 \end{frame}
 
-
-
             
-\subsection{Pulses}
+\subsection{}
 \begin{frame}
-  \frametitle{Pulses} 
-  \begin{Definition}
-  	Complex Wavefunction $U(t)=|A(t)|exp(i[\omega_{0}t+\varphi(t)])$\\
-  	 \footnotesize{$|A(t)|$ magnitude of the envelope, angular frequency $\omega_{0}$,  phase $\varphi(t)=arg[A(t)]$} \\
-  	\begin{columns}
-    	\begin{column}{0.35\textwidth}
-      		$\varphi(t+t_{0})\approx \varphi_{0}+\varphi't+\frac{1}{2}\varphi''t^2$\\
-      		$I(t)=I_{0}exp(-2t^2/\tau^2)$
-   		\end{column}
-    	\begin{column}{0.5\textwidth}
-     		$A(t)=A_{0}exp(-t^2/\tau^2)exp(iat^2/\tau^2)$
-    	\end{column}
-	\end{columns}
-  
-\end{Definition}
+  \frametitle{Why is this a difficult problem?} 
+  	\begin{Definition}
+  	We assume that the quantum state is loaded into memory
+	\end{Definition}
 \vspace{0.3in}
-\begin{columns}
-    \begin{column}{0.48\textwidth}
-       \includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]
-            {figures/irpulse_neu2.png}
-    \end{column}
-    \begin{column}{0.48\textwidth}
-       \includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]
-            {figures/pulsechirp.png}
-    \end{column}
-\end{columns}
+ \begin{itemize}
+ 	\item a classical computer can't store the state efficiently
+ 	\item a classical computer cannot produce a complete description of the state
+ 	\end{itemize}
 \end{frame}
 
 
-
-\subsection{Spectrogram}
+\subsection{Schrödinger equation}
 \begin{frame}
-  \frametitle{short-time Fourier Transform} 
+  \frametitle{Schrödinger equation} 
   \begin{Definition}
-  $\Phi(\nu,\tau)=\int P(t)G(t-\tau)exp(-i2\pi\nu t)dt$
+  $ H |\psi(t) = i \hbar \frac{\delta}{\delta t} \ket{\psi(t)} $
   \end{Definition}
   \vspace{0.21in}
-  \begin{columns}
-  \begin{column}{0.5\textwidth}
-  $Gate: G(t-\tau)$\\
-  $Gated\,Pulse: P(t)G(t-\tau)$
-        	\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]
-            {figures/5signal.png}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-   	 Spectrogram: $|\Phi(\nu, \tau)|^2$ \\
-   	 $2\sqrt{2}sin(4\pi t+cos(2\pi*0,25t))$:
-    		\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]
-            {figures/5spectrogram.pdf}
-   \end{column}
-  \end{columns}
- % \vspace{0.2in}
+  integrate both sides:\\
+  \vspace{0.11in}
+  \quad $ \ket{\psi(t)} = e^{-iHt/\hbar} \ket{\psi(0)}$\\
+  \vspace{0.11in}
+  break H down into potential and kinetic energy: \\
+  \quad $E_{kin} = \frac{p^2}{2m}$ \\
+  \vspace{0.11in}
+  $e^{\frac{-ip^2t}{2m\hbar}}$ and $e^{\frac{-iE_{pot}t}{\hbar}}$ don't commute, so $ e^{-iHt/\hbar} = e^{\frac{-ip^2t}{2m\hbar}}e^{\frac{-iE_{pot}t}{\hbar}}$ doesn't hold
 \end{frame}
 
 
 
-\subsection{Attosecond Streaking Spectroscopy}
+\subsection{Lie-Trotter product formula}
 \begin{frame}
-  \frametitle{Attosecond Streaking Spectroscopy}
-  %\begin{itemize}
-  %	\item Photoionization of a gas target by a XUV pulse
-  %	\item Electrons leave the surface with a kinetic energy
-  %	\item IR laser pulse influences the photoelectron momentum
-  %	\item Final momentum is measured
-  %\end{itemize}
-  \begin{center}
-           \includegraphics[width=\textwidth,height=0.75\textheight,keepaspectratio]
-            {figures/experimental_setup.jpg}
-  \end{center}
-  %Source: Direct Measurement of Light Waves, E.Goulielmakis, 2004
-  %\vspace{ 0.1in}
-  \footnotesize Direct Measurement of Light Waves, E.Goulielmakis, 2004, Science
-  %Attosecond spectroscopy in condensed matter, Cavalieri et al., 2007, Nature volume 449
+  \frametitle{Lie-Trotter product formula}
+  \begin{Definition}
+  $ e^{A+B} = \lim_{n \to \inf}(e^{A/n}e^{B/n})^{n}  $
+  \end{Definition}
+  \begin{itemize}
+  	\item product formula: simulate the sum-terms of a Hamiltonian by simulating each one separetly for a small time slice
+  	\item $ H = A + B + C $
+  	\item $ U = e ^ {-i(A+B+C)t} = (e^{-iCt/r}e^{-iBt/r}e^{-iCt/r})^{r} $
+  	\item switching between kinetic and potential energy terms
+  \end{itemize}
+  we arrive at: $e^{\frac{-i\hat{H}t}{\hbar}} =  \lim_{N\to\infty} (e^{\frac{-ip^2t}{2m \hbar N}}e^{\frac{-\hat{V}(\hat{x})t}{\hbar N}})^N$
 \end{frame}
 
-\subsection{Applying the FROG scheme}
-\begin{frame}
-  \frametitle{Applying FROG to Attosecond Streaking}
-    Attosecond Streaking Formula:
-  \begin{center} $\Phi(p,\tau)=\int_{-\infty}^{+\infty}E_{X}(t)d(p+A_{L}(t+\tau))e^{-i\phi(p,t+\tau)}e^{i(p^2)/2-\Omega_{X}+W)t}dt$  \\
-   \vspace{0.2in} \begin{flushleft}
-    Modified Spectrogram:
-      \end{flushleft}
-  	$\hat{S}(p,\tau)=\frac{|\Phi(t,\tau)|^2}{|d(p)|^2}\approx \bigl|\int_{-\infty}^{+\infty}E_{X}G(t+\tau)e^{\frac{i}{2}p^2t}dt\bigl|^2$
-  \end{center}
-  \vspace{0.3in} 
-   FROG Spectrogram: 
-  \begin{center}
-           $\tilde{S}=\bigl|\int_{-\infty}^{+\infty}P(t)G(t+\tau)e^{i\omega t}dt\bigl|^2$  
-  \end{center}
-  \vspace{0.5in} 
-  \footnotesize The accurate FROG characterization of attosecond pulses from streaking measurements, J.Gagnon et al., 2008, Appl.Phys. B 92, 25-32
-\end{frame}
-
-
-\subsection{LSGPA}
-\begin{frame}
-\begin{flushleft}
-Initial Guess:
-\end{flushleft}
- \frametitle{Least Squares Generalized Projections Algorithm}
- \begin{center}
- \includegraphics[width=\textwidth,height=0.99\textheight,keepaspectratio]
-            {figures/lsgpa_0.png}
- \end{center}
- \vspace{0.3in} 
- \footnotesize The accurate FROG characterization of attosecond pulses from streaking measurements, J.Gagnon et al., 2008, Appl.Phys. B 92, 25-32
-\end{frame}
-
-
-\begin{frame}
-\begin{flushleft}
-LSGPA Loop:
-\end{flushleft}
-\begin{itemize}
-\item apply alternating constraints in time-/freq. domain
-\end{itemize}
- \frametitle{Least Squares Generalized Projections Algorithm}
- \begin{center}
- \includegraphics[width=\textwidth,height=0.99\textheight,keepaspectratio]
-            {figures/lsgpa_1.png}
- \end{center}
- %\vspace{0.3in} 
- \footnotesize The accurate FROG characterization of attosecond pulses from streaking measurements, J.Gagnon et al., 2008, Appl.Phys. B 92, 25-32
-\end{frame}
 
 \section{Implementation}
-\subsection{Problem Statement}
+\subsection{Split operator}
 \begin{frame}
-  \frametitle{Problem Statement}
-  \begin{columns}
-  \begin{column}{0.7\textwidth}
-        \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]
-            {figures/roi.pdf}
-    \end{column}
-    \begin{column}{0.3\textwidth}
-    	\begin{itemize}
-    		\item Identify Regions-Of-Interest
-  			\item Setup the data structures
-    		\item Satisfy the data constraints
-    		\begin{itemize}
-     			 \item{FFT}
-   				 \item{LSGPA}
-   			\end{itemize}
-    	\end{itemize}
-    \end{column}
-  \end{columns}
+
+\begin{Definition}
+ Split operator
+\end{Definition}
+  
+Algorithm: \\
+
+\begin{enumerate}
+\item Apply a half step of the potential propagator to $\psi(0)$ \\
+\item Apply the Fourier transform: momentum basis \\
+\item Apply a full step of the kinetic propagator on the momentum basis\\
+\item Apply the Inverse Fourier transform: back to coordinate basis\\
+\item Apply the second half step of the potential propagator\\
+\end{enumerate}
+\vspace{0.1in}
+this algorithm results from splitting the propagator, substituting into the Schrödinger equation and projecting onto a coordinate basis $\ket{x}$
+\end{frame}
+
+\subsection{Classical Approach}
+\begin{frame}
+  \frametitle{Simulating a wavefunction}
+  \begin{itemize}
+  	\item blue line:  $\bra{\Psi}\ket{\Psi}$ 
+  	\item orange line: potential energy, $\hat{V}$
+  \end{itemize}
+  \animategraphics[loop,autoplay, width=1\linewidth]{12}{figures/without_well/animation_without_well-}{0}{399}
 \end{frame}
 
 \begin{frame}
- \frametitle{Data Constraints}
- %\begin{itemize}
- %	\item number of FFT points: power of 2
- %	\item $T=\frac{2\pi}{E_{max}},\,\, E_{max}=2*photon\,energy$
- %	\item Time Pulse Axis: scaled by T (same number of points)
- %\end{itemize}
- \begin{center}
- 	 \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]
-            {figures/gatetrick.png}
- \end{center}
- \footnotesize The accurate FROG characterization of attosecond pulses from streaking measurements, J.Gagnon et al., 2008, Appl.Phys. B 92, 25-32
+  \frametitle{Simulating a wavefunction}
+  \begin{itemize}
+  	\item blue line:  $\bra{\Psi}\ket{\Psi}$ 
+  	\item orange line: potential energy, $\hat{V}$
+  \end{itemize}
+  \animategraphics[loop,autoplay, width=1\linewidth]{12}{figures/with_well/animation_with_well-}{0}{399}
 \end{frame}
 
-\subsection{Data Structures}
+
+
+
+\section{Hamiltonian simulation algorithms for near-term quantum hardware}
+
 \begin{frame}
-  \frametitle{Data Structures}
-  \begin{columns}
-  \begin{column}{0.48\textwidth}
-        \begin{itemize}
-  			\item object-oriented
-  			\item modularized
-  		\end{itemize}
-    \end{column}
-    \begin{column}{0.48\textwidth}
-    	\begin{itemize}
-    		\item expandable
-    		\item built on top of the Scan framework
-    	\end{itemize}
-    \end{column}
-  \end{columns}
-  \begin{center}
-  		 \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]
-            {figures/class-diagram.png}
-  \end{center}
+  \frametitle{}
+  
 \end{frame}
 
 \subsection{Example Code}
@@ -299,30 +211,5 @@ LSGPA Loop:
 	\end{center}
 \end{frame}
 
-\section{Appendix}
-\subsection{EM spectrum}
-\begin{frame}
-  \frametitle{EM spectrum} 
-  \begin{center}
-            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]
-            {figures/em.jpg}
-  \end{center}
-  source: Melissa Petruzzello et all., Encyclopædia Britannica Inc., 2017
-\end{frame}
-
-
-\subsection{Attosecond Formula}
-\begin{frame}
-  \frametitle{Attosecond Streaking Formula}
-  \begin{center}
-            $\Phi(p,\tau)=\int_{-\infty}^{+\infty}E_{X}(t)d(p+A_{L}(t+\tau))e^{-i\phi(p,t+\tau)}e^{i(p^2)/2-\Omega_{X}+W)t}dt$            
-  \end{center}
-  \vspace{0.3in} 
-  \begin{center}
-  	$\varphi(p,t)=\int_{t}^{\infty}(pA_{L}(t')+\frac{1}{2}A_{L}^2(t'))dt'$
-  \end{center} 
-   \vspace{1in} 
-  \footnotesize The accurate FROG characterization of attosecond pulses from streaking measurements, J.Gagnon et al., 2008, Appl.Phys. B 92, 25-32
-\end{frame}
 
 \end{document}
