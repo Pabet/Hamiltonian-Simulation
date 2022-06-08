@@ -4,11 +4,13 @@
 \beamer@sectionintoc {2}{Implementation}{7}{0}{2}
 \beamer@subsectionintoc {2}{1}{Split operator}{7}{0}{2}
 \beamer@subsectionintoc {2}{2}{Classical Approach}{8}{0}{2}
-\beamer@subsectionintoc {2}{3}{Data Structures}{10}{0}{2}
-\beamer@subsectionintoc {2}{4}{Example Code}{11}{0}{2}
-\beamer@subsectionintoc {2}{5}{Functions}{12}{0}{2}
-\beamer@sectionintoc {3}{Results}{14}{0}{3}
-\beamer@subsectionintoc {3}{1}{Synthesized Data}{14}{0}{3}
-\beamer@subsectionintoc {3}{2}{Measured Data}{15}{0}{3}
-\beamer@sectionintoc {4}{Outlook}{16}{0}{4}
-\beamer@sectionintoc {5}{End}{17}{0}{5}
+\beamer@sectionintoc {3}{Hamiltonian simulation algorithms for near-term quantum hardware}{10}{0}{3}
+\beamer@subsectionintoc {3}{1}{Introduction}{10}{0}{3}
+\beamer@subsectionintoc {3}{2}{Fermi-Hubbard Model}{12}{0}{3}
+\beamer@subsectionintoc {3}{3}{Sub-Circuit Model}{13}{0}{3}
+\beamer@subsectionintoc {3}{4}{Non-asymptotic Trotter bounds}{15}{0}{3}
+\beamer@sectionintoc {4}{Results}{16}{0}{4}
+\beamer@subsectionintoc {4}{1}{Per-gate run-times}{16}{0}{4}
+\beamer@subsectionintoc {4}{2}{Gate decomposition cost}{18}{0}{4}
+\beamer@sectionintoc {5}{Outlook}{19}{0}{5}
+\beamer@sectionintoc {6}{End}{20}{0}{6}

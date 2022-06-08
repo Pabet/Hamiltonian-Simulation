@@ -31,43 +31,54 @@
 \headcommand {\beamer@framepages {8}{8}}
 \headcommand {\slideentry {2}{2}{2}{9/9}{Classical Approach}{0}}
 \headcommand {\beamer@framepages {9}{9}}
+\headcommand {\beamer@sectionpages {7}{9}}
 \headcommand {\beamer@subsectionpages {8}{9}}
-\headcommand {\beamer@subsectionentry {0}{2}{3}{10}{Data Structures}}
-\headcommand {\slideentry {2}{3}{1}{10/10}{Data Structures}{0}}
+\headcommand {\sectionentry {3}{Hamiltonian simulation algorithms for near-term quantum hardware}{10}{Hamiltonian simulation algorithms for near-term quantum hardware}{0}}
+\headcommand {\beamer@subsectionpages {10}{9}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{10}{Introduction}}
+\headcommand {\slideentry {3}{1}{1}{10/10}{Introduction}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\beamer@subsectionpages {10}{10}}
-\headcommand {\beamer@subsectionentry {0}{2}{4}{11}{Example Code}}
-\headcommand {\slideentry {2}{4}{1}{11/11}{Example Code}{0}}
+\headcommand {\slideentry {3}{1}{2}{11/11}{Introduction}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\beamer@subsectionpages {11}{11}}
-\headcommand {\beamer@subsectionentry {0}{2}{5}{12}{Functions}}
-\headcommand {\slideentry {2}{5}{1}{12/12}{Functions}{0}}
+\headcommand {\beamer@subsectionpages {10}{11}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{12}{Fermi-Hubbard Model}}
+\headcommand {\slideentry {3}{2}{1}{12/12}{Fermi-Hubbard Model}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\slideentry {2}{5}{2}{13/13}{Functions}{0}}
+\headcommand {\beamer@subsectionpages {12}{12}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{13}{Sub-Circuit Model}}
+\headcommand {\slideentry {3}{3}{1}{13/13}{Sub-Circuit Model}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\beamer@sectionpages {7}{13}}
-\headcommand {\beamer@subsectionpages {12}{13}}
-\headcommand {\sectionentry {3}{Results}{14}{Results}{0}}
-\headcommand {\beamer@subsectionpages {14}{13}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{14}{Synthesized Data}}
-\headcommand {\slideentry {3}{1}{1}{14/14}{Synthesized Data}{0}}
+\headcommand {\slideentry {3}{3}{2}{14/14}{Sub-Circuit Model}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\beamer@subsectionpages {14}{14}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{15}{Measured Data}}
-\headcommand {\slideentry {3}{2}{1}{15/15}{Measured Data}{0}}
+\headcommand {\beamer@subsectionpages {13}{14}}
+\headcommand {\beamer@subsectionentry {0}{3}{4}{15}{Non-asymptotic Trotter bounds}}
+\headcommand {\slideentry {3}{4}{1}{15/15}{Non-asymptotic Trotter bounds}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\beamer@sectionpages {14}{15}}
+\headcommand {\beamer@sectionpages {10}{15}}
 \headcommand {\beamer@subsectionpages {15}{15}}
-\headcommand {\sectionentry {4}{Outlook}{16}{Outlook}{0}}
-\headcommand {\slideentry {4}{0}{1}{16/16}{}{0}}
+\headcommand {\sectionentry {4}{Results}{16}{Results}{0}}
+\headcommand {\beamer@subsectionpages {16}{15}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{16}{Per-gate run-times}}
+\headcommand {\slideentry {4}{1}{1}{16/16}{Per-gate run-times}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\beamer@sectionpages {16}{16}}
-\headcommand {\beamer@subsectionpages {16}{16}}
-\headcommand {\sectionentry {5}{End}{17}{End}{0}}
-\headcommand {\slideentry {5}{0}{1}{17/17}{}{0}}
+\headcommand {\slideentry {4}{1}{2}{17/17}{Per-gate run-times}{0}}
 \headcommand {\beamer@framepages {17}{17}}
-\headcommand {\beamer@partpages {1}{17}}
-\headcommand {\beamer@subsectionpages {17}{17}}
-\headcommand {\beamer@sectionpages {17}{17}}
-\headcommand {\beamer@documentpages {17}}
-\headcommand {\gdef \inserttotalframenumber {17}}
+\headcommand {\beamer@subsectionpages {16}{17}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{18}{Gate decomposition cost}}
+\headcommand {\slideentry {4}{2}{1}{18/18}{Gate decomposition cost}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\beamer@sectionpages {16}{18}}
+\headcommand {\beamer@subsectionpages {18}{18}}
+\headcommand {\sectionentry {5}{Outlook}{19}{Outlook}{0}}
+\headcommand {\slideentry {5}{0}{1}{19/19}{}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\beamer@sectionpages {19}{19}}
+\headcommand {\beamer@subsectionpages {19}{19}}
+\headcommand {\sectionentry {6}{End}{20}{End}{0}}
+\headcommand {\slideentry {6}{0}{1}{20/20}{}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\beamer@partpages {1}{20}}
+\headcommand {\beamer@subsectionpages {20}{20}}
+\headcommand {\beamer@sectionpages {20}{20}}
+\headcommand {\beamer@documentpages {20}}
+\headcommand {\gdef \inserttotalframenumber {20}}
