@@ -1,0 +1,328 @@
+\documentclass[10pt,a4paper]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[utf8]{inputenc}
+\usetheme{Warsaw}  %% Themenwahl
+
+%Hamiltonian simulation algorithms for near-term quantum hardware
+\title[]{Hamiltonian simulation algorithms for near-term quantum hardware}
+\author{Patrick Bettermann}
+\date{\today}
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+  \oldmacro\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+
+\begin{document}
+\maketitle
+\setbeamertemplate{section in toc}[circle]
+\frame{\tableofcontents[]}
+
+
+\section{Introduction}
+\begin{frame} %%Eine Folie
+  \frametitle{Attosecond Physics} 
+  \begin{Definition} %%Definition
+    1 Attosecond (as) $= 1*10^{-18}$ s
+  \end{Definition}
+  \begin{itemize}
+ 	\item Shortest timescale available to us in experiments
+ 	\item Special analysis methods are required
+	\end{itemize}
+\end{frame}
+
+
+
+            
+\subsection{Pulses}
+\begin{frame}
+  \frametitle{Pulses} 
+  \begin{Definition}
+  	Complex Wavefunction $U(t)=|A(t)|exp(i[\omega_{0}t+\varphi(t)])$\\
+  	 \footnotesize{$|A(t)|$ magnitude of the envelope, angular frequency $\omega_{0}$,  phase $\varphi(t)=arg[A(t)]$} \\
+  	\begin{columns}
+    	\begin{column}{0.35\textwidth}
+      		$\varphi(t+t_{0})\approx \varphi_{0}+\varphi't+\frac{1}{2}\varphi''t^2$\\
+      		$I(t)=I_{0}exp(-2t^2/\tau^2)$
+   		\end{column}
+    	\begin{column}{0.5\textwidth}
+     		$A(t)=A_{0}exp(-t^2/\tau^2)exp(iat^2/\tau^2)$
+    	\end{column}
+	\end{columns}
+  
+\end{Definition}
+\vspace{0.3in}
+\begin{columns}
+    \begin{column}{0.48\textwidth}
+       \includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]
+            {figures/irpulse_neu2.png}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+       \includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]
+            {figures/pulsechirp.png}
+    \end{column}
+\end{columns}
+\end{frame}
+
+
+
+\subsection{Spectrogram}
+\begin{frame}
+  \frametitle{short-time Fourier Transform} 
+  \begin{Definition}
+  $\Phi(\nu,\tau)=\int P(t)G(t-\tau)exp(-i2\pi\nu t)dt$
+  \end{Definition}
+  \vspace{0.21in}
+  \begin{columns}
+  \begin{column}{0.5\textwidth}
+  $Gate: G(t-\tau)$\\
+  $Gated\,Pulse: P(t)G(t-\tau)$
+        	\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]
+            {figures/5signal.png}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+   	 Spectrogram: $|\Phi(\nu, \tau)|^2$ \\
+   	 $2\sqrt{2}sin(4\pi t+cos(2\pi*0,25t))$:
+    		\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]
+            {figures/5spectrogram.pdf}
+   \end{column}
+  \end{columns}
+ % \vspace{0.2in}
+\end{frame}
+
+
+
+\subsection{Attosecond Streaking Spectroscopy}
+\begin{frame}
+  \frametitle{Attosecond Streaking Spectroscopy}
+  %\begin{itemize}
+  %	\item Photoionization of a gas target by a XUV pulse
+  %	\item Electrons leave the surface with a kinetic energy
+  %	\item IR laser pulse influences the photoelectron momentum
+  %	\item Final momentum is measured
+  %\end{itemize}
+  \begin{center}
+           \includegraphics[width=\textwidth,height=0.75\textheight,keepaspectratio]
+            {figures/experimental_setup.jpg}
+  \end{center}
+  %Source: Direct Measurement of Light Waves, E.Goulielmakis, 2004
+  %\vspace{ 0.1in}
+  \footnotesize Direct Measurement of Light Waves, E.Goulielmakis, 2004, Science
+  %Attosecond spectroscopy in condensed matter, Cavalieri et al., 2007, Nature volume 449
+\end{frame}
+
+\subsection{Applying the FROG scheme}
+\begin{frame}
+  \frametitle{Applying FROG to Attosecond Streaking}
+    Attosecond Streaking Formula:
+  \begin{center} $\Phi(p,\tau)=\int_{-\infty}^{+\infty}E_{X}(t)d(p+A_{L}(t+\tau))e^{-i\phi(p,t+\tau)}e^{i(p^2)/2-\Omega_{X}+W)t}dt$  \\
+   \vspace{0.2in} \begin{flushleft}
+    Modified Spectrogram:
+      \end{flushleft}
+  	$\hat{S}(p,\tau)=\frac{|\Phi(t,\tau)|^2}{|d(p)|^2}\approx \bigl|\int_{-\infty}^{+\infty}E_{X}G(t+\tau)e^{\frac{i}{2}p^2t}dt\bigl|^2$
+  \end{center}
+  \vspace{0.3in} 
+   FROG Spectrogram: 
+  \begin{center}
+           $\tilde{S}=\bigl|\int_{-\infty}^{+\infty}P(t)G(t+\tau)e^{i\omega t}dt\bigl|^2$  
+  \end{center}
+  \vspace{0.5in} 
+  \footnotesize The accurate FROG characterization of attosecond pulses from streaking measurements, J.Gagnon et al., 2008, Appl.Phys. B 92, 25-32
+\end{frame}
+
+
+\subsection{LSGPA}
+\begin{frame}
+\begin{flushleft}
+Initial Guess:
+\end{flushleft}
+ \frametitle{Least Squares Generalized Projections Algorithm}
+ \begin{center}
+ \includegraphics[width=\textwidth,height=0.99\textheight,keepaspectratio]
+            {figures/lsgpa_0.png}
+ \end{center}
+ \vspace{0.3in} 
+ \footnotesize The accurate FROG characterization of attosecond pulses from streaking measurements, J.Gagnon et al., 2008, Appl.Phys. B 92, 25-32
+\end{frame}
+
+
+\begin{frame}
+\begin{flushleft}
+LSGPA Loop:
+\end{flushleft}
+\begin{itemize}
+\item apply alternating constraints in time-/freq. domain
+\end{itemize}
+ \frametitle{Least Squares Generalized Projections Algorithm}
+ \begin{center}
+ \includegraphics[width=\textwidth,height=0.99\textheight,keepaspectratio]
+            {figures/lsgpa_1.png}
+ \end{center}
+ %\vspace{0.3in} 
+ \footnotesize The accurate FROG characterization of attosecond pulses from streaking measurements, J.Gagnon et al., 2008, Appl.Phys. B 92, 25-32
+\end{frame}
+
+\section{Implementation}
+\subsection{Problem Statement}
+\begin{frame}
+  \frametitle{Problem Statement}
+  \begin{columns}
+  \begin{column}{0.7\textwidth}
+        \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]
+            {figures/roi.pdf}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+    	\begin{itemize}
+    		\item Identify Regions-Of-Interest
+  			\item Setup the data structures
+    		\item Satisfy the data constraints
+    		\begin{itemize}
+     			 \item{FFT}
+   				 \item{LSGPA}
+   			\end{itemize}
+    	\end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Data Constraints}
+ %\begin{itemize}
+ %	\item number of FFT points: power of 2
+ %	\item $T=\frac{2\pi}{E_{max}},\,\, E_{max}=2*photon\,energy$
+ %	\item Time Pulse Axis: scaled by T (same number of points)
+ %\end{itemize}
+ \begin{center}
+ 	 \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]
+            {figures/gatetrick.png}
+ \end{center}
+ \footnotesize The accurate FROG characterization of attosecond pulses from streaking measurements, J.Gagnon et al., 2008, Appl.Phys. B 92, 25-32
+\end{frame}
+
+\subsection{Data Structures}
+\begin{frame}
+  \frametitle{Data Structures}
+  \begin{columns}
+  \begin{column}{0.48\textwidth}
+        \begin{itemize}
+  			\item object-oriented
+  			\item modularized
+  		\end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+    	\begin{itemize}
+    		\item expandable
+    		\item built on top of the Scan framework
+    	\end{itemize}
+    \end{column}
+  \end{columns}
+  \begin{center}
+  		 \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]
+            {figures/class-diagram.png}
+  \end{center}
+\end{frame}
+
+\subsection{Example Code}
+\begin{frame}
+ \frametitle{Example Code}
+  \begin{center}
+  		 \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]
+            {figures/example_code.png}
+  \end{center}
+\end{frame}
+
+\subsection{Functions}
+\begin{frame}
+	\frametitle{Setup Function}
+	\includegraphics[width=\textwidth,height=0.1\textheight,keepaspectratio]
+            {figures/setup_code.png}
+     \begin{center}
+    	 \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]
+            {figures/setup1.png}
+     \end{center}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Run the Algorithm}
+	\includegraphics[width=\textwidth,height=0.1\textheight,keepaspectratio]
+            {figures/run_code.png}
+	\begin{center}
+		\includegraphics[width=\textwidth,height=0.99\textheight,keepaspectratio]
+            {figures/lsgpa_1.png}
+	\end{center}
+\end{frame}
+
+
+\section{Results}
+\subsection{Synthesized Data}
+\begin{frame}
+	\frametitle{Results: synthesized data}
+	\includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]
+            {figures/working/results_synthesized_2.png}
+	\linebreak   
+	\begin{flushright}
+		Merit = $\sqrt{\sum_{i=1}^{N_{\epsilon}}|S_{1,i}-IFFT(\tilde{S}_{2,i})|^2}$
+	\end{flushright}	 
+\end{frame}
+
+\subsection{Measured Data}
+\begin{frame}{Outline}
+	\frametitle{Results: measured data}
+	\includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]
+            {figures/working/result_measured_new.png}
+    \begin{flushright}
+		Merit =  $\sqrt{\sum_{i=1}^{N_{\epsilon}}|S_{1,i}-IFFT(\tilde{S}_{2,i})|^2}$
+	\end{flushright}
+\end{frame}
+
+\section{Outlook}
+\begin{frame}
+\frametitle{Outlook}
+\begin{itemize}
+	\item Make the algorithm run perfectly, fix the bug
+	\item Research Interest: get the delays between two traces
+\end{itemize}
+\end{frame}
+
+\section{End}
+\begin{frame}
+\title{End}
+	\begin{center}
+		Thank you for your attention!
+	\end{center}
+\end{frame}
+
+\section{Appendix}
+\subsection{EM spectrum}
+\begin{frame}
+  \frametitle{EM spectrum} 
+  \begin{center}
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]
+            {figures/em.jpg}
+  \end{center}
+  source: Melissa Petruzzello et all., Encyclopædia Britannica Inc., 2017
+\end{frame}
+
+
+\subsection{Attosecond Formula}
+\begin{frame}
+  \frametitle{Attosecond Streaking Formula}
+  \begin{center}
+            $\Phi(p,\tau)=\int_{-\infty}^{+\infty}E_{X}(t)d(p+A_{L}(t+\tau))e^{-i\phi(p,t+\tau)}e^{i(p^2)/2-\Omega_{X}+W)t}dt$            
+  \end{center}
+  \vspace{0.3in} 
+  \begin{center}
+  	$\varphi(p,t)=\int_{t}^{\infty}(pA_{L}(t')+\frac{1}{2}A_{L}^2(t'))dt'$
+  \end{center} 
+   \vspace{1in} 
+  \footnotesize The accurate FROG characterization of attosecond pulses from streaking measurements, J.Gagnon et al., 2008, Appl.Phys. B 92, 25-32
+\end{frame}
+
+\end{document}
