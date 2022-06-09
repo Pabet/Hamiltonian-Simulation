@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.8)  8 JUN 2022 19:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.8)  9 JUN 2022 12:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -7741,28 +7741,87 @@ Overfull \vbox (1.36124pt too high) has occurred while \output is active []
 [12
 
 ]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.188 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+! LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.188 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.188 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.188 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.188 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
 Overfull \vbox (1.36124pt too high) has occurred while \output is active []
 
 
 [13
 
 ]
+<figures/gate_decomp.png, id=4699, 414.54875pt x 121.45375pt>
+File: figures/gate_decomp.png Graphic file (type png)
+<use figures/gate_decomp.png>
+Package pdftex.def Info: figures/gate_decomp.png  used on input line 200.
+(pdftex.def)             Requested size: 303.8199pt x 89.01259pt.
+
 Overfull \vbox (1.36124pt too high) has occurred while \output is active []
 
 
 [14
 
-]
+ <./figures/gate_decomp.png>]
 Overfull \vbox (1.36124pt too high) has occurred while \output is active []
 
 
 [15
 
 ]
-<figures/per-gate-run-time.png, id=4758, 437.38406pt x 302.63063pt>
+<figures/per-gate-run-time.png, id=4774, 437.38406pt x 302.63063pt>
 File: figures/per-gate-run-time.png Graphic file (type png)
 <use figures/per-gate-run-time.png>
-Package pdftex.def Info: figures/per-gate-run-time.png  used on input line 198.
+Package pdftex.def Info: figures/per-gate-run-time.png  used on input line 231.
 
 (pdftex.def)             Requested size: 192.9768pt x 133.52269pt.
 
@@ -7772,10 +7831,10 @@ Overfull \vbox (1.36124pt too high) has occurred while \output is active []
 [16
 
  <./figures/per-gate-run-time.png>]
-<figures/per-time-run-time.png, id=4796, 440.39531pt x 295.1025pt>
+<figures/per-time-run-time.png, id=4811, 440.39531pt x 295.1025pt>
 File: figures/per-time-run-time.png Graphic file (type png)
 <use figures/per-time-run-time.png>
-Package pdftex.def Info: figures/per-time-run-time.png  used on input line 208.
+Package pdftex.def Info: figures/per-time-run-time.png  used on input line 241.
 
 (pdftex.def)             Requested size: 199.26466pt x 133.52435pt.
 
@@ -7785,11 +7844,11 @@ Overfull \vbox (1.36124pt too high) has occurred while \output is active []
 [17
 
  <./figures/per-time-run-time.png>]
-<figures/gate-decomposition-cost.png, id=4832, 898.85812pt x 283.81032pt>
+<figures/gate-decomposition-cost.png, id=4847, 898.85812pt x 283.81032pt>
 File: figures/gate-decomposition-cost.png Graphic file (type png)
 <use figures/gate-decomposition-cost.png>
 Package pdftex.def Info: figures/gate-decomposition-cost.png  used on input lin
-e 218.
+e 251.
 (pdftex.def)             Requested size: 307.281pt x 97.02255pt.
 
 Overfull \vbox (1.36124pt too high) has occurred while \output is active []
@@ -7821,34 +7880,36 @@ Overfull \vbox (1.36124pt too high) has occurred while \output is active []
 
  (Seminar.aux)
 Package rerunfilecheck Info: File `Seminar.out' has not changed.
-(rerunfilecheck)             Checksum: CB20517C0A87AF93C84D5A6610AFF8C7;2521.
+(rerunfilecheck)             Checksum: 38F65D81113DB63923634879A2F840C6;2481.
  ) 
 Here is how much of TeX's memory you used:
- 35854 strings out of 478582
- 991288 string characters out of 2843401
- 953445 words of memory out of 3000000
- 52649 multiletter control sequences out of 15000+600000
+ 35867 strings out of 478582
+ 991737 string characters out of 2843401
+ 953502 words of memory out of 3000000
+ 52661 multiletter control sequences out of 15000+600000
  474155 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,20n,122p,440b,748s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/Patrick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmmi10.pfb><C:/Users/Patrick/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmmi7.pfb><C:/Users/Patrick/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmss10.pfb><C:/Users/Patrick/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Patrick/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Patrick/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/Pa
-trick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><
+m/cmex10.pfb><C:/Users/Patrick/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb><C:/Users/Patrick/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Patrick/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Patrick/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Patrick/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Pat
+rick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><
 C:/Users/Patrick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-msy10.pfb><C:/Users/Patrick/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmsy5.pfb><C:/Users/Patrick/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmsy7.pfb><C:/Users/Patrick/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Patrick/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm5.pfb><C:/Users/Patrick/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Seminar.pdf (20 pages, 2944440 bytes).
+mssi8.pfb><C:/Users/Patrick/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb><C:/Users/Patrick/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Patrick/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Patrick/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Patrick/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm5.pfb><C:/Use
+rs/Patrick/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/ms
+bm7.pfb>
+Output written on Seminar.pdf (20 pages, 2965396 bytes).
 PDF statistics:
- 5003 PDF objects out of 5155 (max. 8388607)
+ 5022 PDF objects out of 5155 (max. 8388607)
  58 named destinations out of 1000 (max. 500000)
- 9290 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 9331 words of extra memory for PDF output out of 10000 (max. 10000000)
 

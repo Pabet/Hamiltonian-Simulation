@@ -26,10 +26,10 @@
 \headcommand {\slideentry {2}{1}{1}{7/7}{Split operator}{0}}
 \headcommand {\beamer@framepages {7}{7}}
 \headcommand {\beamer@subsectionpages {7}{7}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{8}{Classical Approach}}
-\headcommand {\slideentry {2}{2}{1}{8/8}{Classical Approach}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{8}{Simulating a wavefunction}}
+\headcommand {\slideentry {2}{2}{1}{8/8}{Simulating a wavefunction}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\slideentry {2}{2}{2}{9/9}{Classical Approach}{0}}
+\headcommand {\slideentry {2}{2}{2}{9/9}{Simulating a wavefunction}{0}}
 \headcommand {\beamer@framepages {9}{9}}
 \headcommand {\beamer@sectionpages {7}{9}}
 \headcommand {\beamer@subsectionpages {8}{9}}
@@ -51,8 +51,8 @@
 \headcommand {\slideentry {3}{3}{2}{14/14}{Sub-Circuit Model}{0}}
 \headcommand {\beamer@framepages {14}{14}}
 \headcommand {\beamer@subsectionpages {13}{14}}
-\headcommand {\beamer@subsectionentry {0}{3}{4}{15}{Non-asymptotic Trotter bounds}}
-\headcommand {\slideentry {3}{4}{1}{15/15}{Non-asymptotic Trotter bounds}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{4}{15}{Trotter bounds}}
+\headcommand {\slideentry {3}{4}{1}{15/15}{Trotter bounds}{0}}
 \headcommand {\beamer@framepages {15}{15}}
 \headcommand {\beamer@sectionpages {10}{15}}
 \headcommand {\beamer@subsectionpages {15}{15}}

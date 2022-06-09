@@ -112,7 +112,7 @@ Algorithm: \\
 this algorithm results from splitting the propagator, substituting into the Schrödinger equation and projecting onto a coordinate basis $\ket{x}$
 \end{frame}
 
-\subsection{Classical Approach}
+\subsection{Simulating a wavefunction}
 \begin{frame}
   \frametitle{Simulating a wavefunction}
   \begin{itemize}
@@ -160,6 +160,14 @@ this algorithm results from splitting the propagator, substituting into the Schr
 \subsection{Fermi-Hubbard Model}
 \begin{frame}
  \frametitle{Fermi-Hubbard Model}
+  Hamiltonian: \\
+  $H_{FH} =  \sum_{i=1}^{N} h_{on-site}^{(i)} + \sum_{i<j,\sigma}^{} h_{hopping}^{(i,j,\sigma)}$
+  \vspace{0.1in}
+  \begin{itemize}
+  	\item Model existed before quantum computing
+  	\item Most practical applications involve fermionic system
+  	\item Classical approaches can be used as benchmark
+  \end{itemize}
   
 \end{frame}
 
@@ -167,21 +175,46 @@ this algorithm results from splitting the propagator, substituting into the Schr
 \subsection{Sub-Circuit Model}
 \begin{frame}
  \frametitle{Sub-Circuit Model}
-  
+  \begin{itemize}
+  	\item Assumption: hardware can perform CNOT, Z, H .... gates
+  	\item Layer of abstraction: overhead
+  	\item Quantum circuit: $ C = \prod_{l}^{L} U_{l}V_{j} $
+  	\item U_{l} = \prod_{i \in Q} u_{i}^{l}$ a layer of arbitrary single qubit unitary gates $
+  	\item $V_{l} = \prod_{i j \in \Gamma} v_{i j} (t_{ij}^{l})$ a layer of non-overlapping, two-qubit gates
+  	\item two-qubit unitary gates: $v_{ij}(t) = e^{ith_{ij}}, h_{ij} = Z_{i}Z_{j}$
+  	\item $h_{ij} = \sigma_{i}\sigma_{j}$ since $ \sigma_{i}\sigma_{j} = Z_{i}Z_{j}$(*)
+  	\item the cost $T_{cost}(C) = L$, L = circuit depth 
+  \end{itemize}
 \end{frame}
 
 
 \begin{frame}
 	\frametitle{Sub-Circuit Synthesis}
-     
+    \begin{Definition}
+    how to decompse local Trotter steps $e^{i\delta h}$\\
+    Let $U(t) = e^{itH}, H = \frac{1}{2i}[h_1, h_2]$\\
+    $U(t) = e^{it_1 h_1}e^{it_2 h_2}e^{it_2 h_1}e^{it_1 h_2}$ (Lemma 7, supplementary)
+    \end{Definition} 
+    \includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]
+            {figures/gate_decomp.png}
 \end{frame}
 
 
 
-\subsection{Non-asymptotic Trotter bounds}
+\subsection{Trotter bounds}
 \begin{frame}
 	\frametitle{Error models}
-	
+	\begin{enumerate}
+		\item Per-gate error model
+		\item Per-time error model
+	\end{enumerate}
+		\vspace{0.11in}
+	\begin{itemize}
+		\item "Error budget required to execute a circuit"
+		\item Single-qubit gates are considered free
+		\item Obtain tight error expression $\epsilon_p (\delta)$
+		\item Guarantee $\epsilon_p (\delta) < \epsilon_{target}$ by inverting the expression and derive a maximum possible Trotter step $\delta_0 = \delta_0 (\epsilon_{target})$
+	\end{itemize}
 \end{frame}
 
 
