@@ -1,5 +1,7 @@
+import math
 import numpy as np
-
+from mpmath import sec, csc, cot
+from scipy.linalg import expm, sinm, cosm
 """
 function for one step of split operator method
 """

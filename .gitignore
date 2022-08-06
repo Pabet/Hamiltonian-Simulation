@@ -1,3 +1,5 @@
 .ipynb_checkpoints
 files
 sources
+.idea
+src/__pycache__/
